@@ -28,8 +28,9 @@ de serviço.
 
 ## Tecnologia utilizada:
 
+ <img align="center" alt="madeira-mysql" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
 
-<p>
+<br><p>
 O projeto foi desenvolvido
 </p>
 
@@ -41,3 +42,5 @@ O projeto foi desenvolvido
 <p align="center">
 <img src="">
 </p>
+
+
