@@ -7,17 +7,17 @@ Este projeto é um  diagramas das modelagens de entidade relacionamento (MER) e 
 <p>
 Sistema de controle e gerenciamento de execução de ordens de serviço em uma
 oficina mecânica: Clientes levam veículos à oficina mecânica para serem consertados
-ou para passarem por revisões periódicas.
+ou para passarem por revisões periódicas.<br>
 ● Cada veículo é designado a uma equipe de mecânicos que identifica os
 serviços a serem executados e preenche uma ordem de serviço (OS) e prevê uma
-data de entrega.
+data de entrega..<br>
 ● A partir da OS, calcula-se o valor de cada serviço, consultando-se uma tabela
 de referência de mão-de-obra. O valor de cada peça necessária à execução do serviço
-também é computado.
+também é computado..<br>
 ● O cliente autoriza a execução dos serviços e a mesma equipe responsável pela
-avaliação realiza os serviços. Clientes possuem código, nome, endereço e telefone.
-● Veículos possuem código, placa e descrição.
-● Cada mecânico possui código, nome, endereço e especialidade.
+avaliação realiza os serviços. Clientes possuem código, nome, endereço e telefone..<br>
+● Veículos possuem código, placa e descrição..<br>
+● Cada mecânico possui código, nome, endereço e especialidade..<br>
 ● Cada OS possui um número, uma data de emissão, um valor e uma data para
 conclusão dos trabalhos. Uma OS pode ser composta de vários ítens (serviços) e um
 mesmo serviço pode constar em várias ordens de serviço. Uma OS pode envolver
