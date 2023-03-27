@@ -26,21 +26,24 @@ de serviço.
 </p>
 
 
+## Modelo Lógico <br>
+
+<p align="center">
+<img src="./img/imgLogico.png" width = "80%"  height = "80%">
+</p>
+
+
 ## Tecnologia utilizada:
 
  <img align="center" alt="madeira-mysql" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
+ <img src="./img/brmodelo.png" width = "50px"  height = "50px">
 
 <br><p>
-O projeto foi desenvolvido
+O projeto foi desenvolvido inicialmente com o br_Modelo e MySQL Workbench. Logo mais será inicido a codificão e implementação dos dados nas tabelas.
 </p>
 
 
 
 
-## Consultando aluno <br>
-
-<p align="center">
-<img src="">
-</p>
 
 
