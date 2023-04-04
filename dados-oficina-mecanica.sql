@@ -11,3 +11,12 @@ INSERT INTO tb_mecanico(id_cpf,nome,especialidade,tb_equipe_mecanico_id_equipe_m
 
 insert into tb_telefone(id_telefone,numero,tb_cliente_id_cpf) value ("12345678", "987456321","22222233344");
 select * from tb_telefone_tb_cliente1_idx;
+
+
+INSERT INTO tb_cliente (id_cpf_cliente,nome) value ("070.154.874-57" , "Carlos Tavares");
+
+INSERT INTO tb_endereco (UF,logradouro,numero,cidade,bairro,id_cpf_cliente) VALUE ("PE","Rua Agora Vai",2350,"Olinda","Tomatinhos","070.154.874-57");
+
+select * from tb_endereco;
+
+INSERT INTO tb_endereco (id_cpf_cliente) VALUE ("070.154.874-57");

@@ -1,243 +1,235 @@
 -- MySQL Workbench Forward Engineering
 SET FOREIGN_KEY_CHECKS = 0;
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+CREATE SCHEMA oficina_mecanica DEFAULT CHARACTER SET utf8 ;
+
+USE oficina_mecanica ;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Table oficina_mecanica.`tb_cliente`
 -- -----------------------------------------------------
-CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE TABLE  tb_cliente (
+  id_cpf_cliente VARCHAR(14) NOT NULL,
+  nome VARCHAR(200) NOT NULL,
+  
+  PRIMARY KEY (id_cpf_cliente)
+  );
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_cliente`
+-- Table oficina_mecanica.`tb_equipe_mecanico`
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_cliente` (
-  `id_cpf` VARCHAR(11) NOT NULL,
-  `nome` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`id_cpf`),
-  UNIQUE INDEX `id_cpf_UNIQUE` (`id_cpf` ASC) VISIBLE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`tb_equipe_mecanico`
--- -----------------------------------------------------
-CREATE TABLE `mydb`.`tb_equipe_mecanico` (
-  `id_equipe_mecanico` INT NOT NULL,
-  PRIMARY KEY (`id_equipe_mecanico`))
-ENGINE = InnoDB;
+CREATE TABLE tb_equipe_mecanico(
+  id_equipe_mecanico INT NOT NULL,
+  PRIMARY KEY (id_equipe_mecanico)
+  );
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_mecanico`
+-- Table oficina_mecanica.`tb_mecanico`
 -- -----------------------------------------------------
-CREATE TABLE `mydb`.`tb_mecanico` (
-  `id_cpf` VARCHAR(11) NOT NULL,
-  `nome` VARCHAR(200) NOT NULL,
-  `especialidade` VARCHAR(45) NOT NULL,
-  `tb_equipe_mecanico_id_equipe_mecanico` INT NOT NULL,
-  PRIMARY KEY (`id_cpf`),
-  UNIQUE INDEX `id_cpf_UNIQUE` (`id_cpf` ASC) VISIBLE,
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE,
-  INDEX `fk_tb_mecanico_tb_equipe_mecanico1_idx` (`tb_equipe_mecanico_id_equipe_mecanico` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_mecanico_tb_equipe_mecanico1`
-    FOREIGN KEY (`tb_equipe_mecanico_id_equipe_mecanico`)
-    REFERENCES `mydb`.`tb_equipe_mecanico` (`id_equipe_mecanico`)
+CREATE TABLE tb_mecanico (
+  id_cpf_mecanico VARCHAR(14) NOT NULL,
+  nome VARCHAR(200) NOT NULL,
+  especialidade VARCHAR(45) NOT NULL,
+  id_equipe_mecanico INT NOT NULL,
+  
+  PRIMARY KEY (id_cpf_mecanico),
+  CONSTRAINT fk_equipe_mecanico
+  
+    FOREIGN KEY (id_equipe_mecanico)
+    REFERENCES tb_equipe_mecanico (id_equipe_mecanico)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_telefone`
+-- Table tb_telefone
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_telefone` (
-  `id_telefone` VARCHAR(15) NOT NULL,
-  `numero` VARCHAR(15) NOT NULL,
-  `tb_cliente_id_cpf` VARCHAR(11) NOT NULL,
-  `tb_mecanico_id_cpf` VARCHAR(11) NOT NULL,
-  PRIMARY KEY (`id_telefone`),
-  UNIQUE INDEX `id_telefone_UNIQUE` (`id_telefone` ASC) VISIBLE,
-  INDEX `fk_tb_telefone_tb_cliente1_idx` (`tb_cliente_id_cpf` ASC) VISIBLE,
-  INDEX `fk_tb_telefone_tb_mecanico1_idx` (`tb_mecanico_id_cpf` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_telefone_tb_cliente1`
-    FOREIGN KEY (`tb_cliente_id_cpf`)
-    REFERENCES `mydb`.`tb_cliente` (`id_cpf`)
+
+CREATE TABLE  tb_telefone (
+  id_telefone VARCHAR(11) NOT NULL,
+  id_cpf_cliente VARCHAR(14) NOT NULL,
+  id_cpf_mecanico VARCHAR(14) NOT NULL,
+  
+  PRIMARY KEY (id_telefone),
+  CONSTRAINT fk_tb_telefone
+  
+    FOREIGN KEY (id_cpf_cliente)
+    REFERENCES tb_cliente ( id_cpf_cliente)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_telefone_tb_mecanico1`
-    FOREIGN KEY (`tb_mecanico_id_cpf`)
-    REFERENCES `mydb`.`tb_mecanico` (`id_cpf`)
+    
+    FOREIGN KEY (id_cpf_mecanico)
+    REFERENCES tb_mecanico (id_cpf_mecanico)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_endereco`
+-- Table tb_endereco
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_endereco` (
-  `UF` VARCHAR(2) NOT NULL,
-  `logradouro` VARCHAR(200) NOT NULL,
-  `numero` INT NOT NULL,
-  `cidade` VARCHAR(100) NOT NULL,
-  `bairro` VARCHAR(100) NOT NULL,
-  `tb_mecanico_id_cpf` VARCHAR(11) NOT NULL,
-  `tb_cliente_id_cpf` VARCHAR(11) NOT NULL,
-  INDEX `fk_tb_endereco_tb_cliente1_idx` (`tb_cliente_id_cpf` ASC) VISIBLE,
-  UNIQUE INDEX `tb_cliente_id_cpf_UNIQUE` (`tb_cliente_id_cpf` ASC) VISIBLE,
-  UNIQUE INDEX `tb_mecanico_id_cpf_UNIQUE` (`tb_mecanico_id_cpf` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_endereco_tb_mecanico1`
-    FOREIGN KEY (`tb_mecanico_id_cpf`)
-    REFERENCES `mydb`.`tb_mecanico` (`id_cpf`)
+
+CREATE TABLE  tb_endereco (
+  UF VARCHAR(2) NOT NULL,
+  logradouro VARCHAR(200) NOT NULL,
+  numero INT NOT NULL,
+  cidade VARCHAR(100) NOT NULL,
+  bairro VARCHAR(100) NOT NULL,
+  id_cpf_mecanico VARCHAR(14)  NULL,
+  id_cpf_cliente VARCHAR(14)  NULL,
+ 
+ 
+  CONSTRAINT fk_tb_mecanico
+    FOREIGN KEY (id_cpf_mecanico)
+    REFERENCES tb_mecanico (id_cpf_mecanico)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `fk_tb_endereco_tb_cliente1`
-    FOREIGN KEY (`tb_cliente_id_cpf`)
-    REFERENCES `mydb`.`tb_cliente` (`id_cpf`)
+    
+  CONSTRAINT fk_tb_cliente
+    FOREIGN KEY ( id_cpf_cliente)
+    REFERENCES tb_cliente (id_cpf_cliente)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
+    ON UPDATE CASCADE
+    );
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_veiculo`
+-- Table tb_veiculo
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_veiculo` (
-  `id_chassi` VARCHAR(45) NOT NULL,
-  `descrição` VARCHAR(45) NOT NULL,
-  `placa` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`id_chassi`),
-  UNIQUE INDEX `id_chassi_UNIQUE` (`id_chassi` ASC) VISIBLE,
-  UNIQUE INDEX `placa_UNIQUE` (`placa` ASC) VISIBLE)
-ENGINE = InnoDB;
+CREATE TABLE  tb_veiculo (
+  id_chassi VARCHAR(17) NOT NULL,
+  descrição VARCHAR(45) NOT NULL,
+  placa VARCHAR(7) NOT NULL,
+  
+  PRIMARY KEY (id_chassi)
+  );
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_os`
+-- Table tb_os
 -- -----------------------------------------------------
-CREATE TABLE `mydb`.`tb_os` (
-  `id_os` VARCHAR(45) NOT NULL,
-  `valor_total` DECIMAL(7,2) NOT NULL,
-  `data_emissao` VARCHAR(10) NOT NULL,
-  `data_conclusao` VARCHAR(10) NOT NULL,
-  `tb_cliente_id_cpf` VARCHAR(11) NOT NULL,
-  `tb_equipe_mecanico_id_equipe_mecanico` INT NOT NULL,
-  `tb_veiculo_id_chassi` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_os`),
-  UNIQUE INDEX `id_os_UNIQUE` (`id_os` ASC) VISIBLE,
-  UNIQUE INDEX `valor_total_UNIQUE` (`valor_total` ASC) VISIBLE,
-  INDEX `fk_tb_os_tb_cliente1_idx` (`tb_cliente_id_cpf` ASC) VISIBLE,
-  INDEX `fk_tb_os_tb_equipe_mecanico1_idx` (`tb_equipe_mecanico_id_equipe_mecanico` ASC) VISIBLE,
-  INDEX `fk_tb_os_tb_veiculo1_idx` (`tb_veiculo_id_chassi` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_os_tb_cliente1`
-    FOREIGN KEY (`tb_cliente_id_cpf`)
-    REFERENCES `mydb`.`tb_cliente` (`id_cpf`)
+CREATE TABLE tb_os(
+  id_os INT NOT NULL AUTO_INCREMENT,
+  valor_total DECIMAL(7,2)ZEROFILL NOT NULL ,
+  data_emissao VARCHAR(10) NOT NULL,
+  data_conclusao VARCHAR(10) NOT NULL,
+  id_cpf_cliente VARCHAR(14) NOT NULL,
+  id_equipe_mecanico INT NOT NULL,
+  id_chassi VARCHAR(45) NULL,
+  
+ 
+  PRIMARY KEY (id_os),
+  CONSTRAINT fk_id_os
+ 
+    FOREIGN KEY (id_cpf_cliente)
+    REFERENCES tb_cliente (id_cpf_cliente)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_os_tb_equipe_mecanico1`
-    FOREIGN KEY (`tb_equipe_mecanico_id_equipe_mecanico`)
-    REFERENCES `mydb`.`tb_equipe_mecanico` (`id_equipe_mecanico`)
+    
+  CONSTRAINT fk_tb_equipe_mecanico
+    FOREIGN KEY (id_equipe_mecanico)
+    REFERENCES tb_equipe_mecanico (id_equipe_mecanico)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_os_tb_veiculo1`
-    FOREIGN KEY (`tb_veiculo_id_chassi`)
-    REFERENCES `mydb`.`tb_veiculo` (`id_chassi`)
+    
+  CONSTRAINT fk_tb_veiculo
+    FOREIGN KEY (id_chassi)
+    REFERENCES tb_veiculo (id_chassi)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION 
+    );
+
+
+-- -----------------------------------------------------
+-- Table tb_servico
+-- -----------------------------------------------------
+CREATE TABLE  tb_servico(
+  id_servico VARCHAR(45) NOT NULL,
+  valor_maodeobra DECIMAL(7,2)ZEROFILL NOT NULL,
+  tempo_estimado DATE NOT NULL,
+  nome_servico VARCHAR(45) NOT NULL,
+  
+  PRIMARY KEY (id_servico));
+
+
+-- -----------------------------------------------------
+-- Table tb_itensServico
+-- -----------------------------------------------------
+CREATE TABLE  tb_itens_servico (
+  quantidadeServico INT NOT NULL,
+  id_servico VARCHAR(45) NOT NULL,
+  id_os INT NOT NULL AUTO_INCREMENT,
+ 
+  PRIMARY KEY (id_os,id_servico),
+  CONSTRAINT fk_tb_itens_servico
+  
+    FOREIGN KEY (id_servico)
+    REFERENCES tb_servico (id_servico)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    
+  CONSTRAINT fk_tb_os
+    FOREIGN KEY (id_os)
+    REFERENCES tb_os (id_os)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_servico`
+-- Table tb_estoque
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_servico` (
-  `id_servico` VARCHAR(45) NOT NULL,
-  `valor_maodeobra` DECIMAL(7,2) NOT NULL,
-  `tempo_estimado` DATE NOT NULL,
-  `nome_servico` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_servico`),
-  UNIQUE INDEX `nome_servico_UNIQUE` (`nome_servico` ASC) VISIBLE,
-  UNIQUE INDEX `id_servico_UNIQUE` (`id_servico` ASC) VISIBLE)
+CREATE TABLE  tb_estoque (
+  id_peca VARCHAR(45) NOT NULL,
+  nome_peca VARCHAR(45) NOT NULL,
+  valor_peca DECIMAL(7,2)ZEROFILL NOT NULL,
+  
+  PRIMARY KEY (`id_peca`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_itensServico`
+-- Table tb_itnspecas
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_itensServico` (
-  `quantidadeServico` INT NOT NULL,
-  `tb_servico_id_servico` VARCHAR(45) NOT NULL,
-  `tb_os_id_os` VARCHAR(45) NOT NULL,
-  INDEX `fk_tb_itensServico_tb_os1_idx` (`tb_os_id_os` ASC) VISIBLE,
-  PRIMARY KEY (`tb_os_id_os`, `tb_servico_id_servico`),
-  CONSTRAINT `fk_tb_itensServico_tb_servico1`
-    FOREIGN KEY (`tb_servico_id_servico`)
-    REFERENCES `mydb`.`tb_servico` (`id_servico`)
+CREATE TABLE  tb_itnspecas (
+  quantidadePecas INT NOT NULL,
+  id_peca VARCHAR(45) NOT NULL,
+  id_os INT NOT NULL AUTO_INCREMENT,
+  
+  PRIMARY KEY (id_os, id_peca),
+  
+    FOREIGN KEY (id_peca)
+    REFERENCES tb_estoque(id_peca)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_itensServico_tb_os1`
-    FOREIGN KEY (`tb_os_id_os`)
-    REFERENCES `mydb`.`tb_os` (`id_os`)
+    
+
+    FOREIGN KEY (id_os)
+    REFERENCES tb_os(id_os)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tb_estoque`
+-- Table tb_formapagamento
 -- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_estoque` (
-  `id_peca` VARCHAR(45) NOT NULL,
-  `nome_peca` VARCHAR(45) NOT NULL,
-  `valor_peca` DECIMAL(7,2) NOT NULL,
-  PRIMARY KEY (`id_peca`),
-  UNIQUE INDEX `id_peca_UNIQUE` (`id_peca` ASC) VISIBLE,
-  UNIQUE INDEX `nome_peca_UNIQUE` (`nome_peca` ASC) VISIBLE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`tb_itnspecas`
--- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_itnspecas` (
-  `quantidadePecas` INT NOT NULL,
-  `tb_estoque_id_peca` VARCHAR(45) NOT NULL,
-  `tb_os_id_os` VARCHAR(45) NOT NULL,
-  INDEX `fk_tb_itnspecas_tb_os1_idx` (`tb_os_id_os` ASC) VISIBLE,
-  PRIMARY KEY (`tb_os_id_os`, `tb_estoque_id_peca`),
-  CONSTRAINT `fk_tb_pecas_tb_estoque1`
-    FOREIGN KEY (`tb_estoque_id_peca`)
-    REFERENCES `mydb`.`tb_estoque` (`id_peca`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_itnspecas_tb_os1`
-    FOREIGN KEY (`tb_os_id_os`)
-    REFERENCES `mydb`.`tb_os` (`id_os`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`tb_formapagamento`
--- -----------------------------------------------------
-CREATE TABLE  `mydb`.`tb_formapagamento` (
-  `id_pagamento` VARCHAR(45) NOT NULL,
-  `tipo_pagamento` VARCHAR(45) NOT NULL,
-  `valor_pagamento` DECIMAL(7,2) NOT NULL,
-  `tb_os_id_os` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_pagamento`, `tb_os_id_os`),
-  INDEX `fk_tb_formapagamento_tb_os1_idx` (`tb_os_id_os` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_formapagamento_tb_os1`
-    FOREIGN KEY (`tb_os_id_os`)
-    REFERENCES `mydb`.`tb_os` (`id_os`)
+CREATE TABLE  tb_formapagamento (
+  id_pagamento VARCHAR(45) NOT NULL,
+  tipo_pagamento VARCHAR(45) NOT NULL,
+  valor_pagamento DECIMAL(7,2)ZEROFILL NOT NULL,
+   id_os INT NOT NULL AUTO_INCREMENT,
+   
+  PRIMARY KEY (id_pagamento, id_os),
+  
+  CONSTRAINT fk_tb_formapagamento_tb_os
+    FOREIGN KEY (id_os)
+    REFERENCES tb_os (id_os)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
