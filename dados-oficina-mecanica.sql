@@ -47,3 +47,33 @@ INSERT INTO tb_endereco(UF,cidade,bairro,logradouro,numero,id_cpf_cliente)
 INSERT INTO tb_equipe_mecanico VALUES (20),(21),(22),(23),(24);
 
 
+
+-- -----------------------------------------------------
+-- Dados tb_mecanico
+-- -----------------------------------------------------
+
+INSERT INTO tb_mecanico VALUES 
+("564.597.264-01","Naman de Melo","Motor",20),
+("942.632.852-03", "Rosemay Melo","Elétrica",20),
+("963.147.231-87","Zenem  da Silva","Geral",20),
+("444.778.632-77", "Karla Crsita","Geral",20),
+
+("837.99.471-53","kaua Tavares","Elétrica",21),
+("606.447.888-00","Djalma Lima","Geral",21),
+("687.031.684-99","Vanessa Gomes","Motor",21),
+("666.249.874-11","Waleria Alvés","Geral",21),
+
+("682.031.000-22","Pedro Morais","Geral",22),
+("999.888.221.33","Dayanne Veras","Elétrica",22),
+("658.999.324-44","Isadora Mota","Motor",22),
+("963.225.447-55", "Tatiany Costa","Geral",22),
+
+("887.754.669-66","Rafael Machado","Elétrica",23),
+("989.878.979-77","Ana Larissa","Motor",23),
+("656.454.646-88","Vinicius Melo","Geral",23),
+("117.903.878-99","Caio Brito","Geral",23),
+
+("086.000.974-78","Breno Gomes","Motor",24),
+("954.680.007-10","Leia Gardelha","Elétrica",24),
+("962.457.222-74","Carlos ALberto","Geral",24),
+("999.555.077-41","Ricardo Toronto","Geral",24);
