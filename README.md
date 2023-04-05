@@ -1,6 +1,6 @@
 ## 💻 Projeto
 
-Este projeto é um  diagramas das modelagens de entidade relacionamento (MER) e modelagem relacional (MR) para a construção de um Banco de Dados do Funcionamento de uma Oficina Mecânica 
+Este projeto é um  diagrama da modelagem de entidade relacionamento (MER), modelagem relacional (MR) e Modelo Fìsico para a construção de um Banco de Dados do Funcionamento de uma Oficina Mecânica 
 
 ## Modelo de negócio do cliente <br>
 
@@ -29,7 +29,7 @@ de serviço.
 ## Modelo Lógico <br>
 
 <p align="center">
-<img src="./img/imgLogico.png" width = "80%"  height = "80%">
+<img src="./img/imgLogico.png/" width = "80%"  height = "80%">
 </p>
 
 
