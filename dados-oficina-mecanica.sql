@@ -34,5 +34,16 @@ INSERT INTO tb_endereco(UF,cidade,bairro,logradouro,numero,id_cpf_cliente)
         ("PE", "Olinda", "Jardim Atlantico", "Rua Rutilo", 8, "120.749.910-88"),
         ("PE", "Recife", "Campo Grande", "Rua N S da Glória", 164, "100.300.650-76"),
         ("PE", "Recife", "iputinga", "Rua João do caminhão", 102, "112.088.387-02");
+      
+      
+-- -----------------------------------------------------
+-- Dados Endereço Mecanico
+-- -----------------------------------------------------
         
+
+-- -----------------------------------------------------
+-- Dados tb_equipe_mecanico
+-- -----------------------------------------------------
+INSERT INTO tb_equipe_mecanico VALUES (20),(21),(22),(23),(24);
+
 
