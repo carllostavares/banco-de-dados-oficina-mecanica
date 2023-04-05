@@ -1,22 +1,19 @@
 SET  FOREIGN_KEY_CHECKS = 0;
 
-INSERT INTO tb_cliente VALUE ("11122233344", "Naman de Melo");
-INSERT INTO tb_cliente VALUE ("22222233344", "Rosemay de Melo"),("33322233344", "Zenem  da Silva"),("44422233344", "Karla Crsita"),("55522233344", "kaua Tavares"),("66622233344", "Djalma Lima"),
-("77722233344", "Vanessa Gomes"),("88822233344", "Waleria Alvés"),("99922233344", "Pedro Morais"),("11133333344", "Dayanne Veras"),("22244433344", "Isadora Mota"),("22222233377", "Tatiany Costa");
+-- -----------------------------------------------------
+-- Dados Cliente
+-- -----------------------------------------------------
+INSERT INTO tb_cliente VALUES 
+("070.154.874-57", "Hugo Diniz"),
+("112.345.678-90", "Juliana Ramalho"),
+("777.888.999-34", "Diego Coutinho"),
+("014.128.358-00", "Ben Hur Queiroz"),
+("055.432.798-57", "Fellipe Diniz"),
+("077.188.387-02", "Godofredo Souza"),
+("098.765.432-11", "César Pinho"),
+("102.406.954-01", "Mácio Júnior"),
+("120.380.134-18", "Joao Victor"),
+("120.749.910-88", "Luiz Andre"),
+("100.300.650-76", "Thiago Rodrigues"),
+("112.088.387-02", "Godolores Castro");
 
-SELECT * FROM tb_mecanico;
-
-INSERT INTO tb_mecanico(id_cpf,nome,especialidade,tb_equipe_mecanico_id_equipe_mecanico) VALUE ("11144411111","Flavio Mendes", "Motor",1); 
-INSERT INTO tb_mecanico(id_cpf,nome,especialidade,tb_equipe_mecanico_id_equipe_mecanico) VALUE ("11144411999","Otavio tendes", "Eletrica",2); 
-
-insert into tb_telefone(id_telefone,numero,tb_cliente_id_cpf) value ("12345678", "987456321","22222233344");
-select * from tb_telefone_tb_cliente1_idx;
-
-
-INSERT INTO tb_cliente (id_cpf_cliente,nome) value ("070.154.874-57" , "Carlos Tavares");
-
-INSERT INTO tb_endereco (UF,logradouro,numero,cidade,bairro,id_cpf_cliente) VALUE ("PE","Rua Agora Vai",2350,"Olinda","Tomatinhos","070.154.874-57");
-
-select * from tb_endereco;
-
-INSERT INTO tb_endereco (id_cpf_cliente) VALUE ("070.154.874-57");

@@ -1,15 +1,11 @@
--- MySQL Workbench Forward Engineering
-SET FOREIGN_KEY_CHECKS = 0;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema oficina_mecanica 
 -- -----------------------------------------------------
 CREATE SCHEMA oficina_mecanica DEFAULT CHARACTER SET utf8 ;
 
-USE oficina_mecanica ;
-
 -- -----------------------------------------------------
--- Table oficina_mecanica.`tb_cliente`
+-- Table tb_cliente`
 -- -----------------------------------------------------
 CREATE TABLE  tb_cliente (
   id_cpf_cliente VARCHAR(14) NOT NULL,
@@ -19,16 +15,15 @@ CREATE TABLE  tb_cliente (
   );
 
 -- -----------------------------------------------------
--- Table oficina_mecanica.`tb_equipe_mecanico`
+-- Table tb_equipe_mecanico`
 -- -----------------------------------------------------
 CREATE TABLE tb_equipe_mecanico(
   id_equipe_mecanico INT NOT NULL,
   PRIMARY KEY (id_equipe_mecanico)
   );
 
-
 -- -----------------------------------------------------
--- Table oficina_mecanica.`tb_mecanico`
+-- Table tb_mecanico`
 -- -----------------------------------------------------
 CREATE TABLE tb_mecanico (
   id_cpf_mecanico VARCHAR(14) NOT NULL,
@@ -45,15 +40,14 @@ CREATE TABLE tb_mecanico (
     ON UPDATE NO ACTION
     );
 
-
 -- -----------------------------------------------------
 -- Table tb_telefone
 -- -----------------------------------------------------
 
 CREATE TABLE  tb_telefone (
   id_telefone VARCHAR(11) NOT NULL,
-  id_cpf_cliente VARCHAR(14) NOT NULL,
-  id_cpf_mecanico VARCHAR(14) NOT NULL,
+  id_cpf_cliente VARCHAR(14)  NULL,
+  id_cpf_mecanico VARCHAR(14)  NULL,
   
   PRIMARY KEY (id_telefone),
   CONSTRAINT fk_tb_telefone
@@ -68,7 +62,6 @@ CREATE TABLE  tb_telefone (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     );
-
 
 -- -----------------------------------------------------
 -- Table tb_endereco
@@ -97,7 +90,6 @@ CREATE TABLE  tb_endereco (
     ON UPDATE CASCADE
     );
 
-
 -- -----------------------------------------------------
 -- Table tb_veiculo
 -- -----------------------------------------------------
@@ -108,16 +100,15 @@ CREATE TABLE  tb_veiculo (
   
   PRIMARY KEY (id_chassi)
   );
-
-
+ 
 -- -----------------------------------------------------
 -- Table tb_os
 -- -----------------------------------------------------
 CREATE TABLE tb_os(
   id_os INT NOT NULL AUTO_INCREMENT,
   valor_total DECIMAL(7,2)ZEROFILL NOT NULL ,
-  data_emissao VARCHAR(10) NOT NULL,
-  data_conclusao VARCHAR(10) NOT NULL,
+  data_emissao DATE NOT NULL,
+  data_conclusao DATE NOT NULL,
   id_cpf_cliente VARCHAR(14) NOT NULL,
   id_equipe_mecanico INT NOT NULL,
   id_chassi VARCHAR(45) NULL,
@@ -144,7 +135,6 @@ CREATE TABLE tb_os(
     ON UPDATE NO ACTION 
     );
 
-
 -- -----------------------------------------------------
 -- Table tb_servico
 -- -----------------------------------------------------
@@ -156,14 +146,13 @@ CREATE TABLE  tb_servico(
   
   PRIMARY KEY (id_servico));
 
-
 -- -----------------------------------------------------
 -- Table tb_itensServico
 -- -----------------------------------------------------
 CREATE TABLE  tb_itens_servico (
   quantidadeServico INT NOT NULL,
   id_servico VARCHAR(45) NOT NULL,
-  id_os INT NOT NULL AUTO_INCREMENT,
+  id_os INT NOT NULL,
  
   PRIMARY KEY (id_os,id_servico),
   CONSTRAINT fk_tb_itens_servico
@@ -180,7 +169,6 @@ CREATE TABLE  tb_itens_servico (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table tb_estoque
 -- -----------------------------------------------------
@@ -189,9 +177,8 @@ CREATE TABLE  tb_estoque (
   nome_peca VARCHAR(45) NOT NULL,
   valor_peca DECIMAL(7,2)ZEROFILL NOT NULL,
   
-  PRIMARY KEY (`id_peca`))
+  PRIMARY KEY (id_peca))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table tb_itnspecas
@@ -199,7 +186,7 @@ ENGINE = InnoDB;
 CREATE TABLE  tb_itnspecas (
   quantidadePecas INT NOT NULL,
   id_peca VARCHAR(45) NOT NULL,
-  id_os INT NOT NULL AUTO_INCREMENT,
+  id_os INT NOT NULL,
   
   PRIMARY KEY (id_os, id_peca),
   
@@ -215,7 +202,6 @@ CREATE TABLE  tb_itnspecas (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table tb_formapagamento
 -- -----------------------------------------------------
@@ -223,7 +209,7 @@ CREATE TABLE  tb_formapagamento (
   id_pagamento VARCHAR(45) NOT NULL,
   tipo_pagamento VARCHAR(45) NOT NULL,
   valor_pagamento DECIMAL(7,2)ZEROFILL NOT NULL,
-   id_os INT NOT NULL AUTO_INCREMENT,
+  id_os INT NOT NULL,
    
   PRIMARY KEY (id_pagamento, id_os),
   
