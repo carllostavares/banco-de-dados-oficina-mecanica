@@ -39,6 +39,10 @@ CREATE TABLE tb_mecanico (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     );
+    
+/*SELECT tb_mecanico.nome, tb_telefone.id_telefone FROM tb_mecanico 
+LEFT JOIN tb_telefone ON tb_mecanico.id_cpf_mecanico = tb_telefone.id_cpf_mecanico 
+where tb_telefone.id_telefone IS NULL;*/
 
 -- -----------------------------------------------------
 -- Table tb_telefone
@@ -141,7 +145,7 @@ CREATE TABLE tb_os(
 CREATE TABLE  tb_servico(
   id_servico VARCHAR(45) NOT NULL,
   valor_maodeobra DECIMAL(7,2)ZEROFILL NOT NULL,
-  tempo_estimado DATE NOT NULL,
+  tempo_estimado TIME NOT NULL,
   nome_servico VARCHAR(45) NOT NULL,
   
   PRIMARY KEY (id_servico));
@@ -149,6 +153,7 @@ CREATE TABLE  tb_servico(
 -- -----------------------------------------------------
 -- Table tb_itensServico
 -- -----------------------------------------------------
+
 CREATE TABLE  tb_itens_servico (
   quantidadeServico INT NOT NULL,
   id_servico VARCHAR(45) NOT NULL,
@@ -172,6 +177,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table tb_estoque
 -- -----------------------------------------------------
+
 CREATE TABLE  tb_estoque (
   id_peca VARCHAR(45) NOT NULL,
   nome_peca VARCHAR(45) NOT NULL,
@@ -183,6 +189,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table tb_itnspecas
 -- -----------------------------------------------------
+
 CREATE TABLE  tb_itnspecas (
   quantidadePecas INT NOT NULL,
   id_peca VARCHAR(45) NOT NULL,
