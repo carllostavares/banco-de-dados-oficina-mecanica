@@ -39,7 +39,29 @@ INSERT INTO tb_endereco(UF,cidade,bairro,logradouro,numero,id_cpf_cliente)
 -- -----------------------------------------------------
 -- Dados Endereço Mecanico
 -- -----------------------------------------------------
-        
+
+INSERT INTO tb_endereco (UF,cidade,bairro,logradouro,numero,id_cpf_mecanico) VALUES
+
+		("PE", "Recife", "Pina", "Av. Herculano Bandeira", 1501, "564.597.264-01"),
+        ("PE", "Recife", "Pina", "Rua Estrela do Mar", 553, "942.632.852-03"),
+        ("PE", "Recife", "Pina", "Poraque", 484, "963.147.231-87"),
+        ("PE", "Recife", "Pina", "Parú", 156, "444.778.632-77"),
+        ("PE", "Recife", "Pina", "Anequim", 564, "837.99.471-53"),
+        ("PE", "Recife", "Pina", "Golfinho", 159, "606.447.888-00"),
+        ("PE", "Recife", "Pina", "", 1501, "687.031.684-99"),
+		("PE", "Recife", "Ipsep", "Rua Comandante Garcia D'Avila", 789, "999.555.077-41"),
+        ("PE", "Recife", "Ipsep", "Rua Cruz e Sousa", 25, "666.249.874-11"),
+        ("PE", "Recife", "Apipucos", "Rua Aliança", 256, "682.031.000-22"),
+        ("PE", "Recife", "Apipucos", "Rua Caetés", 327, "999.888.221.33"),
+        ("PE", "Recife", "Apipucos", "Rua Correnteza", 897, "658.999.324-44"),
+        ("PE", "Recife", "Apipucos", "Rua do Mussu", 147, "963.225.447-55"),
+        ("PE", "Recife", "Apipucos", "Rua Dom Luiz", 554, "887.754.669-66"),
+        ("PE", "Recife", "Alto do Mandu", "Rua Acará", 256, "989.878.979-77"),
+        ("PE", "Recife", "Alto do Mandu", "Rua Anhembi", 667, "656.454.646-88"),
+        ("PE", "Recife", "Alto do Mandu", "Rua Batatais", 402, "117.903.878-99"),
+        ("PE", "Recife", "Alto do Mandu", "Rua Cedro", 224, "086.000.974-78"),
+        ("PE", "Recife", "Alto do Mandu", "Rua da Arataca", 568, "954.680.007-10"),
+        ("PE", "Recife", "Madalena", "Rua Altinho", 610, "962.457.222-74");
 
 -- -----------------------------------------------------
 -- Dados tb_equipe_mecanico
