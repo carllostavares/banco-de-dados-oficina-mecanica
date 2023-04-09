@@ -191,7 +191,6 @@ INSERT INTO tb_veiculo (id_chassi, descrição, placa) VALUES
 -- -----------------------------------------------------
 -- Dados tb_estoque
 -- -----------------------------------------------------
-select * from tb_estoque;
 INSERT INTO tb_estoque (id_peca, nome_peca, valor_peca) VALUES
     (1001, "Filtro de Ar HB20 1.6 2012-2021 ORIGINAL", 22.99),
     (1002, "Filtro de Ar ONIX 1.6 2012-2019", 25.99),
@@ -232,3 +231,29 @@ INSERT INTO tb_estoque (id_peca, nome_peca, valor_peca) VALUES
     (1037, "Par de Rotor HB20 1.0", 180.65),
     (1038, "Par de Rotor KWID 1.0", 247.89),
     (1039, "Par de Rotor ONIX 1.0", 296.89);
+    
+-- -----------------------------------------------------
+-- Dados tb_formapagamento
+-- -----------------------------------------------------
+    
+INSERT INTO tb_formapagamento (id_pagamento, tipo_pagamento) VALUES 	
+		("1", "especie"),
+		("2", "pix" ),
+		("3", "pix"),
+		("4", "pix" ),
+		("5", "especie" ),
+		("6", "pix"),
+		("7", "especie"),
+		("8", "cartão"),
+		("9", "cartão"),
+		("10", "pix"),
+		("11", "cartão"),
+		("12", "especie"),
+		("13", "pix"),
+		("14", "especie"),
+		("15", "pix"),
+		("16", "pix"),
+		("17", "cartão"),
+		("18", "cartão"),
+        ("19", "pix"),
+        ("20", "cartão");
