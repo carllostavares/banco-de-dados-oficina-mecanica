@@ -186,3 +186,49 @@ INSERT INTO tb_veiculo (id_chassi, descrição, placa) VALUES
         (8, "Manutençao Elétrica", 200.0, 0),
         (9, "Cambagem", 200.0, 0),
         (10, "Manutenção dos amortecedores",100.0 , 0);
+        
+        
+-- -----------------------------------------------------
+-- Dados tb_estoque
+-- -----------------------------------------------------
+select * from tb_estoque;
+INSERT INTO tb_estoque (id_peca, nome_peca, valor_peca) VALUES
+    (1001, "Filtro de Ar HB20 1.6 2012-2021 ORIGINAL", 22.99),
+    (1002, "Filtro de Ar ONIX 1.6 2012-2019", 25.99),
+    (1003, "Filtro de Ar MOBI 1.0 2017-2019", 79.90),
+    (1004, "Filtro de Ar KWID 1.0 2017-2018 ", 49.90),
+    (1005, "Filtro de Óleo KWID 1.0 12V 2017-2022", 32.50),
+    (1006, "Filtro de Óleo HB20 1.0 12V 2012-2022", 39.90),
+    (1007, "Filtro de Óleo ONIX 1.4 FLEX 2013-2019", 17.80),
+    (1008, "Filtro de Óleo MOBI 1.0 2017-2019", 39.90),
+    (1009, "Filtro de Combustível MOBI 1.0 2017", 30.10),
+    (1010, "Filtro de Combustível ONIX 2013-2019", 12.50),
+    (1011, "Filtro de Combustível HB20 2012-2022", 23.80),
+    (1012, "Filtro de Combustível KWID 2017-2020", 25.01),
+    (1013, "Óleo de Motor ELAION 5w30 1L", 35.00),
+    (1014, "Óleo de Motor LUBRAX 20w50 1L", 31.50),
+    (1015, "Óleo de Motor LUBRAX 10w30 1L", 39.50),
+    (1016, "Óleo de Motor MOBIL 15w40 1L", 31.50),
+    (1017, "Aditivo Radiador PETRONAS Coolant UP 1L", 39.90),
+    (1018, "Água Bi-Desmineralizada RADNAQ", 4.90),
+    (1019, "Água Destilada Pura 5L", 34.90),
+    (1020, "Kit Embreagem MOBI 1.0 - 4 Cilindros", 309.90),
+    (1021, "Kit Embreagem ONIX 1.4 - 4 Cilindros", 800.90),
+    (1022, "Kit Embreagem HB20 1.0 - 3 Cilindros", 550.90),
+    (1023, "Kit Embreagem KWID 1.0 12V", 770.90),
+    (1024, "Rolamento Roda Traseira KWID", 51.90),
+    (1025, "Rolamento Roda Dianteira HB20 1.0", 150.11),
+    (1026, "Rolamento Roda Dianteira ONIX", 157.08),
+    (1027, "Rolamento Roda Dianteira MOBI", 100.99),
+    (1028, "Cabo Freio MOBI Flex 2015", 65.99),
+    (1029, "Cabo Freio HB20 2011 - 2017", 52.99),
+    (1030, "Cabo Freio KWID", 100.99),
+    (1031, "Cabo Freio ONIX", 27.52),
+    (1032, "KIT Pastilha de Freio KWID", 102.90),
+    (1033, "KIT Pastilha de Freio ONIX", 67.90),
+    (1034, "KIT Pastilha de Freio MOBI", 119.90),
+    (1035, "KIT Pastilha de Freio HB20", 130.90),
+    (1036, "Par de Rotor MOBI 1.0 2017-2019", 280.65),
+    (1037, "Par de Rotor HB20 1.0", 180.65),
+    (1038, "Par de Rotor KWID 1.0", 247.89),
+    (1039, "Par de Rotor ONIX 1.0", 296.89);
