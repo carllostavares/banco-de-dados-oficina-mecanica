@@ -169,3 +169,20 @@ INSERT INTO tb_veiculo (id_chassi, descrição, placa) VALUES
 ("3WM991QA07L668230","ARGO TREKKING","QAZ2P33"),
 ("5FR884GLLL99W8000","ECOSPORTE","SLF8G25"),
 ("0ED889HU65Q151545","KOMBI","LMK2K34");
+
+
+-- -----------------------------------------------------
+-- Dados tb_serviço
+-- -----------------------------------------------------
+
+	INSERT INTO tb_servico (id_servico, nome_servico, valor_maodeobra, tempo_estimado) VALUES
+		(1, "Troca de Óleo", 25.0, 0),
+        (2, "Alinhamento e balanceamento", 100.0, 0),
+        (3, "Revisão Geral", 200.0, 0),
+        (4, "Manutenção dos Freios", 100.0, 0),
+        (5, "Manutenção de Embreagem", 100.0, 0),
+        (6, "Manutenção de Sistema de Arrefecimento", 80.0 , 0),
+        (7, "Troca de Filtros",25.0 , 0),
+        (8, "Manutençao Elétrica", 200.0, 0),
+        (9, "Cambagem", 200.0, 0),
+        (10, "Manutenção dos amortecedores",100.0 , 0);
