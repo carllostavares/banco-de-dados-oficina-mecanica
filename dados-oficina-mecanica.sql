@@ -17,6 +17,7 @@ INSERT INTO tb_cliente VALUES
 ("100.300.650-76", "Thiago Rodrigues"),
 ("112.088.387-02", "Godolores Castro");
 
+
 -- -----------------------------------------------------
 -- Dados Endereço Cliente
 -- -----------------------------------------------------
@@ -67,7 +68,6 @@ INSERT INTO tb_endereco (UF,cidade,bairro,logradouro,numero,id_cpf_mecanico) VAL
 -- Dados tb_equipe_mecanico
 -- -----------------------------------------------------
 INSERT INTO tb_equipe_mecanico VALUES (20),(21),(22),(23),(24);
-
 
 
 -- -----------------------------------------------------
@@ -183,10 +183,11 @@ INSERT INTO tb_veiculo (id_chassi, descrição, placa) VALUES
         (5, "Manutenção de Embreagem", 100.0, 0),
         (6, "Manutenção de Sistema de Arrefecimento", 80.0 , 0),
         (7, "Troca de Filtros",25.0 , 0),
-        (8, "Manutençao Elétrica", 200.0, 0),
+        (8, "Revisão Elétrica", 200.0, 0),
         (9, "Cambagem", 200.0, 0),
-        (10, "Manutenção dos amortecedores",100.0 , 0);
+        (10,"Manutenção dos amortecedores",100.0 , 0);
         
+        OBS: troda de filtro
         
 -- -----------------------------------------------------
 -- Dados tb_estoque
@@ -237,23 +238,24 @@ INSERT INTO tb_estoque (id_peca, nome_peca, valor_peca) VALUES
 -- -----------------------------------------------------
     
 INSERT INTO tb_formapagamento (id_pagamento, tipo_pagamento) VALUES 	
-		("1", "especie"),
-		("2", "pix" ),
-		("3", "pix"),
-		("4", "pix" ),
-		("5", "especie" ),
-		("6", "pix"),
-		("7", "especie"),
-		("8", "cartão"),
-		("9", "cartão"),
-		("10", "pix"),
-		("11", "cartão"),
-		("12", "especie"),
-		("13", "pix"),
-		("14", "especie"),
-		("15", "pix"),
+		("1", "especie" ),
+		("2", "especie"),
+		("3", "pix" ),
+		("4", "pix"),
+		("5", "pix" ),
+		("6", "especie" ),
+		("7", "pix"),
+		("8", "especie"),
+		("9", "credito"),
+		("10", "debito"),
+		("11", "pix"),
+		("12", "debito"),
+		("13", "especie"),
+		("14", "pix"),
+		("15", "especie"),
 		("16", "pix"),
-		("17", "cartão"),
-		("18", "cartão"),
-        ("19", "pix"),
-        ("20", "cartão");
+		("17", "pix"),
+		("18", "credito"),
+		("19", "credito"),
+		("20", "pix"),
+		("21", "debito");
