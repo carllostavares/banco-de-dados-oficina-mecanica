@@ -216,6 +216,7 @@ CREATE TABLE  tb_formapagamento (
   tipo_pagamento VARCHAR(45) NOT NULL,
   valor_pagamento DECIMAL(7,2)ZEROFILL NOT NULL,
   id_os INT NOT NULL,
+  qtd_parcelas INT,
    
   PRIMARY KEY (id_pagamento, id_os),
   
