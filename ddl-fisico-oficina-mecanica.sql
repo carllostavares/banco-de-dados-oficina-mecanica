@@ -178,8 +178,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 
 CREATE TABLE  tb_estoque (
-  id_peca VARCHAR(45) NOT NULL,
-  nome_peca VARCHAR(45) NOT NULL,
+  id_peca INT NOT NULL,
+  nome_peca VARCHAR(100) NOT NULL,
   valor_peca DECIMAL(7,2)ZEROFILL NOT NULL,
   
   PRIMARY KEY (id_peca))
