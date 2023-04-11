@@ -143,20 +143,19 @@ CREATE TABLE tb_os(
 -- Table tb_servico
 -- -----------------------------------------------------
 CREATE TABLE  tb_servico(
-  id_servico VARCHAR(45) NOT NULL,
+  id_servico INT NOT NULL,
   valor_maodeobra DECIMAL(7,2)ZEROFILL NOT NULL,
   tempo_estimado TIME NOT NULL,
-  nome_servico VARCHAR(45) NOT NULL,
+  nome_servico VARCHAR(100) NOT NULL,
   
   PRIMARY KEY (id_servico));
 
 -- -----------------------------------------------------
 -- Table tb_itensServico
 -- -----------------------------------------------------
-
 CREATE TABLE  tb_itens_servico (
   quantidadeServico INT NOT NULL,
-  id_servico VARCHAR(45) NOT NULL,
+  id_servico INT NOT NULL,
   id_os INT NOT NULL,
  
   PRIMARY KEY (id_os,id_servico),

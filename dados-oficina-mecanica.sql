@@ -195,6 +195,7 @@ INSERT INTO tb_veiculo (id_chassi, descrição, placa) VALUES
         (17, "Troca de Radiador",100.0 , 0),
         (18, "Troca de Bomba Combustível",100.0 , 0);
         
+                
 -- -----------------------------------------------------
 -- Dados tb_estoque
 -- -----------------------------------------------------
