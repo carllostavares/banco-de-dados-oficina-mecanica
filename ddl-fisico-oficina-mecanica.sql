@@ -212,7 +212,7 @@ ENGINE = InnoDB;
 -- Table tb_formapagamento
 -- -----------------------------------------------------
 CREATE TABLE  tb_formapagamento (
-  id_pagamento VARCHAR(45) NOT NULL,
+  id_pagamento INT  NOT NULL,
   tipo_pagamento VARCHAR(45) NOT NULL,
   valor_pagamento DECIMAL(7,2)ZEROFILL NOT NULL,
   id_os INT NOT NULL,
