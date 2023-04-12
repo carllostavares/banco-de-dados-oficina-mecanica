@@ -331,3 +331,4 @@ INSERT INTO tb_formapagamento (id_pagamento, tipo_pagamento, qtd_parcelas,valor_
 		("19", "credito",1,0,19),
 		("20", "pix",0,0,20),
 		("21", "debito",0,0,21);
+        
