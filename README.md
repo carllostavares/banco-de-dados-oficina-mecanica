@@ -1,6 +1,6 @@
 ## 💻 Projeto
 
-Este projeto é um  diagrama da modelagem de entidade relacionamento (MER), modelagem relacional (MR) e Modelo Fìsico para a construção de um Banco de Dados do Funcionamento de uma Oficina Mecânica 
+Um Banco de Dados com diagrama da modelagem de entidade relacionamento (MER) e modelagem relacional (MR)  do funcionamento dos registros das ordens de serviço(OS) de uma oficina mecânica. Neste caso, será usado o MySQL.  Foi desafiador entender as necessidades do cliente, estabelecer os relacionamentos e aplicar as Formas Normais(FN).
 
 ## Modelo de negócio do cliente <br>
 
@@ -23,15 +23,20 @@ conclusão dos trabalhos. Uma OS pode ser composta de vários ítens (serviços)
 mesmo serviço pode constar em várias ordens de serviço. Uma OS pode envolver
 vários tipos de peças e um mesmo tipo de peça pode ser necessária em várias ordens
 de serviço.
-</p>
+</p><br>
 
 
 ## Modelo Lógico <br>
 
 <p align="center">
 <img src="./img/imgLogico.png/" width = "80%"  height = "80%">
-</p>
+</p><br>
 
+## Modelo Físico <br>
+
+<p align="center">
+<img src="./img/imgFisico.png/" width = "80%"  height = "80%">
+</p><br>
 
 ## Tecnologia utilizada:
 
