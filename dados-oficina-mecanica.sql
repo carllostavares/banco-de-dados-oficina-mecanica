@@ -189,6 +189,7 @@ INSERT INTO tb_os (id_cpf_cliente, id_equipe_mecanico, id_chassi,data_emissao, d
 ("112.088.387-02",21,"1PX609FZ99L456654","2023-02-25","2023-02-25",0.0)
 ;
 
+
 -- -----------------------------------------------------
 -- Dados tb_serviço
 -- -----------------------------------------------------
@@ -323,6 +324,7 @@ INSERT INTO tb_estoque (id_peca, nome_peca, valor_peca) VALUES
     (1102, "Bomba Combustível HB20 1.0 2017 2020", 349.99),
     (1103, "Bomba Combustível KWID 1.0 2017 2020", 269.99);  
     
+
 -- -----------------------------------------------------
 -- Dados tb_formapagamento
 -- -----------------------------------------------------
