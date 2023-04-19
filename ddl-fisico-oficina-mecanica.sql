@@ -154,7 +154,6 @@ CREATE TABLE  tb_servico(
 -- Table tb_itensServico
 -- -----------------------------------------------------
 CREATE TABLE  tb_itens_servico (
-  quantidadeServico INT NOT NULL,
   id_servico INT NOT NULL,
   id_os INT NOT NULL,
  
@@ -191,7 +190,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE  tb_itnspecas (
   quantidadePecas INT NOT NULL,
-  id_peca VARCHAR(45) NOT NULL,
+  id_peca INT NOT NULL,
   id_os INT NOT NULL,
   
   PRIMARY KEY (id_os, id_peca),
