@@ -220,26 +220,26 @@ INSERT INTO tb_itens_servico  (id_os,id_servico)  VALUES
 -- -----------------------------------------------------
 
 	INSERT INTO tb_servico (id_servico, nome_servico, valor_maodeobra, tempo_estimado) VALUES
-		(1, "Troca de Óleo", 25.0, 0),
-        (2, "Alinhamento e balanceamento", 100.0, 0),
-        (3, "Revisão Geral", 200.0, 0),
-        (4, "Manutenção dos Freios", 100.0, 0),
-        (5, "Manutenção de Embreagem", 100.0, 0),
-        (6, "Manutenção de Sistema de Arrefecimento", 80.0 , 0),
-        (7, "Troca de Filtros",25.0 , 0),
-        (8, "Manutençao Elétrica", 200.0, 0),
-        (9, "Cambagem", 200.0, 0),
-        (10, "Manutenção dos amortecedores",100.0 , 0),
-        (11, "Troca de Pneu/Roda/Calota",50.0 , 0),
-        (12, "Instalação de Central Multimidia",100.0 , 0),
-        (13, "Troca de Moldura do Painel",100.0 , 0),
-        (14, "Troca de Caixa de Marcha",80.0 , 0),
-        (15, "Troca de Vela da Ignição",50.0 , 0),
-        (16, "Troca de Parachoque",120.0 , 0),
-        (17, "Troca de Radiador",100.0 , 0),
-        (18, "Troca de Bomba Combustível",100.0 , 0);
+		(1, "Troca de Óleo", 25.0, "00:30:00"),
+        (2, "Alinhamento e balanceamento", 100.0, "02:00:00"),
+        (3, "Revisão Geral", 200.0, "04:00:00"),
+        (4, "Manutenção dos Freios", 100.0, "01:00:00"),
+        (5, "Manutenção de Embreagem", 100.0, "01:30:00"),
+        (6, "Manutenção de Sistema de Arrefecimento", 80.0 , "03:10:00"),
+        (7, "Troca de Filtros",25.0, "01:15:00"),
+        (8, "Manutençao Elétrica", 200.0, "05:00:00"),
+        (9, "Cambagem", 200.0, "02:00:00"),
+        (10, "Manutenção dos amortecedores",100.0 , "02:40:00"),
+        (11, "Troca de Pneu/Roda/Calota",50.0 , "01:00:00"),
+        (12, "Instalação de Central Multimidia",100.00 , "01:30:00"),
+        (13, "Troca de Moldura do Painel",100.0 , "01:00:00"),
+        (14, "Troca de Caixa de Marcha",80.0 , "05:00:00"),
+        (15, "Troca de Vela da Ignição",50.0 , "00:30:00"),
+        (16, "Troca de Parachoque",120.0 , "00:40:00"),
+        (17, "Troca de Radiador",100.0 , "02:15:00"),
+        (18, "Troca de Bomba Combustível",100.0 , "02:20:00");
         
-                
+        
 -- -----------------------------------------------------
 -- Dados tb_estoque
 -- -----------------------------------------------------
