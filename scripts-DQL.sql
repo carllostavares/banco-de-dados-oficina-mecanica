@@ -67,13 +67,23 @@ INNER JOIN tb_formapagamento ON tb_os.id_os = tb_formapagamento.id_os
 WHERE valor_total = (SELECT MAX(valor_total) FROM tb_os)
 GROUP BY tb_os.id_cpf_cliente, tb_formapagamento.tipo_pagamento;
 
-16 
+SELECT tb_formapagamento.tipo_pagamento "Forma de Pagamneto" , COUNT(tb_formapagamento.tipo_pagamento) "QTD Usada"
+FROM tb_os
+INNER JOIN tb_formapagamento ON tb_formapagamento.id_os =  tb_os.id_os
+GROUP BY tb_formapagamento.tipo_pagamento ORDER BY tb_formapagamento.tipo_pagamento DESC LIMIT 1;
+
+SELECT tb_cliente.nome "Nome Cliente", COUNT(tb_os.id_chassi) "Carros" FROM tb_os
+INNER JOIN tb_veiculo ON tb_os.id_chassi = tb_veiculo.id_chassi
+INNER JOIN tb_cliente ON tb_cliente.id_cpf_cliente = tb_os.id_cpf_cliente
+GROUP BY tb_cliente.nome ORDER BY COUNT(tb_os.id_chassi)  DESC LIMIT 8 ;
+
+
 SELECT tb_estoque.nome_peca "Nome", count(tb_estoque.id_peca)"Ocorrências" FROM tb_os
 INNER JOIN tb_itnspecas ON tb_os.id_os = tb_itnspecas.id_os
 INNER JOIN tb_estoque ON tb_itnspecas.id_peca = tb_estoque.id_peca
 GROUP BY tb_estoque.nome_peca  ORDER BY count(tb_estoque.id_peca) DESC LIMIT 4; 
 
-17
+
 SELECT tb_estoque.nome_peca "Nome", count(tb_estoque.id_peca)"Ocorrências", 
 SUM(tb_itnspecas.quantidadePecas) "Quantidade Vendida" FROM tb_os
 INNER JOIN tb_itnspecas ON tb_os.id_os = tb_itnspecas.id_os
