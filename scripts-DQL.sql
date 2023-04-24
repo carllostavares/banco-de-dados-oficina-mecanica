@@ -89,3 +89,20 @@ SUM(tb_itnspecas.quantidadePecas) "Quantidade Vendida" FROM tb_os
 INNER JOIN tb_itnspecas ON tb_os.id_os = tb_itnspecas.id_os
 INNER JOIN tb_estoque ON tb_itnspecas.id_peca = tb_estoque.id_peca
 GROUP BY tb_estoque.nome_peca ORDER BY SUM(tb_itnspecas.quantidadePecas) DESC LIMIT 5; 
+
+
+SELECT  tb_estoque.id_peca "Número da Peça", tb_estoque.nome_peca "Nome da peça" FROM tb_os
+INNER JOIN tb_itnspecas ON tb_os.id_os = tb_itnspecas.id_os
+RIGHT JOIN tb_estoque ON tb_itnspecas.id_peca = tb_estoque.id_peca
+WHERE tb_os.id_os IS NULL;
+
+SELECT  tb_estoque.id_peca "Número da Peça", tb_estoque.nome_peca "Nome da peça" FROM tb_os
+INNER JOIN tb_itnspecas ON tb_os.id_os = tb_itnspecas.id_os
+RIGHT JOIN tb_estoque ON tb_itnspecas.id_peca = tb_estoque.id_peca
+WHERE tb_os.id_os IS NULL;
+
+SELECT tb_os.id_os "Número OS", SEC_TO_TIME(SUM( TIME_TO_SEC(tb_servico.tempo_estimado))) "Tempo total estimado" FROM tb_os
+INNER JOIN tb_itens_servico ON tb_os.id_os = tb_itens_servico.id_os 
+INNER JOIN tb_servico ON  tb_servico.id_servico = tb_itens_servico.id_servico 
+WHERE  data_conclusao  BETWEEN  "2023-02-17" AND "2023-03-22"
+GROUP BY  tb_os.id_os  ORDER BY tb_os.id_os;
